@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  task_name: MyString
+  task: MyText
+  status: MyString
+  dead_line: 
+  priority: 1
+
+two:
+  task_name: MyString
+  task: MyText
+  status: MyString
+  dead_line: 
+  priority: 1

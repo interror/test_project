@@ -1,0 +1,22 @@
+<% @tasks.each_pair do |key, value| %>
+<div id="container">
+    <div id="task_name">
+        <%= key %>
+    </div>
+    <div>
+        <%  %>
+        <% value.each do |obj| %>
+            <div id="task_text">
+                <%= obj.task %>
+                <div class="delete_button">
+                    <%= link_to 'Destroy', obj, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+<% end %>
+
+<div class="new_task_button">
+<%= link_to 'New', new_task_path %>
+</div>
