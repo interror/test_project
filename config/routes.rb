@@ -1,6 +1,11 @@
 RubyGarage::Application.routes.draw do
   get "task_manager/index"
-
+  
+  delete "/:task_name", to: 'task_manager#delete_by_name', as: 'task_manager'
+  get "/tasks/:id/edit_add", to: 'task_manager#priority_add', as: 'priority_add'
+  get "/tasks/:id/edit_sub", to: 'task_manager#priority_sub', as: 'priority_sub'
+  get "/tasks/:id/status", to: 'task_manager#status', as: 'status'
+  
   resources :tasks
 
 

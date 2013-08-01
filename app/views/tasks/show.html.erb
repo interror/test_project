@@ -1,30 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Task -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <b>Task name:</b>
-  <%= @task.task_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:task_name) %>:</strong></dt>
+  <dd><%= @task.task_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:task) %>:</strong></dt>
+  <dd><%= @task.task %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @task.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dead_line) %>:</strong></dt>
+  <dd><%= @task.dead_line %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:priority) %>:</strong></dt>
+  <dd><%= @task.priority %></dd>
+</dl>
 
-<p>
-  <b>Task:</b>
-  <%= @task.task %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @task.status %>
-</p>
-
-<p>
-  <b>Dead line:</b>
-  <%= @task.dead_line %>
-</p>
-
-<p>
-  <b>Priority:</b>
-  <%= @task.priority %>
-</p>
-
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', task_manager_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              tasks_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_task_path(@task), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              task_path(@task),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

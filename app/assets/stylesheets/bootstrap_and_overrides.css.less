@@ -1,0 +1,80 @@
+@import "twitter/bootstrap/bootstrap";
+
+body{background-color: red;}
+
+  .text_content {
+    width: 670px;
+  }
+
+  .done{
+    background: green;
+  }
+  .not_done{
+    background: red;
+  }
+
+.options_content {
+  width: 100px;
+}
+
+.task_table {
+ margin: 20px auto;
+  .row{
+    margin: 1px auto;
+  }
+}
+
+.task_blok {
+  background: white;
+  margin: 100px auto;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e3e3e3;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+a img {
+  background-color: #fff;
+}
+
+.row.task_name{
+  height: 50px;
+  background: blue;
+  p {
+    font-size: 200%;
+    text-align: center;
+    margin: 10px auto;
+    color: black;
+  }
+}
+
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
+@iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
+
+// Font Awesome
+@import "fontawesome/font-awesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/sprites.less";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;

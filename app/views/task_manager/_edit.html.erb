@@ -1,0 +1,9 @@
+    <div class="well form-inline" method="post">
+        <%= form_for(@task_new) do |f| %>
+        <%= f.text_field :task_name, :value => @key %>
+        <!-- <input type="text" class="span6" placeholder="Input task" name="inputing_task" /> -->
+        <%= f.text_field :task %>
+        <!-- <button type="submit" class="btn">Add</button> -->
+        <%= f.submit %>
+        <% end %>
+    </div>

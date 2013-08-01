@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RubyGarage</title>
+  <title>TestProject</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<header>
-    <h1>TASK MANAGER</h1>
-    <p> developed by Eduard Gura </p>
-</header>
-
-
-    <%= yield %>
+<div class="container">
+    <div class="row">
+        <div class="span8 offset2">
+            <h1>Test Project</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span8 offset2">
+            <%= yield %>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

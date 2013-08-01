@@ -1,22 +1,64 @@
+<div class="task_table">
 <% @tasks.each_pair do |key, value| %>
-<div id="container">
-    <div id="task_name">
-        <%= key %>
+    <div class="task_blok">
+    <div class="row task_name">
+    <p><%= key %></p>
+    <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),key, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
-    <div>
-        <%  %>
-        <% value.each do |obj| %>
-            <div id="task_text">
-                <%= obj.task %>
-                <div class="delete_button">
-                    <%= link_to 'Destroy', obj, method: :delete, data: { confirm: 'Are you sure?' } %>
-                </div>
-            </div>
+    <div class="well form-inline" method="post">
+        <%= form_for(@task_new) do |f| %>
+        <%= f.text_field :task_name, :value => key %>
+        <!-- <input type="text" class="span6" placeholder="Input task" name="inputing_task" /> -->
+        <%= f.text_field :task %>
+        <!-- <button type="submit" class="btn">Add</button> -->
+        <%= f.submit :value => "Add Task", :class => "btn" %>
         <% end %>
     </div>
-</div>
-<% end %>
+    <table class="table table-bordered">
+        <% value.each do |obj| %>
+                
+                <% if obj.status == "done" %>
+                <th class="text_content done">
+                    <%= obj.task %>
+                </th>
+                <th class="options_content done">
+                    <%= link_to "+", priority_add_path(obj) %>
+                    <%= link_to "-", priority_sub_path(obj) %>
+                    <%= link_to "edit", edit_task_path(obj) %>
+                    <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to "in action", status_path(obj) %>
+                </th>
+        </tbody>
+                <% elsif obj.status == "fail"%>
+                <th class="text_content not_done">
+                    <%= obj.task %>
+                </th>
+                <th class="options_content not_done">
+                    <%= link_to "+", priority_add_path(obj) %>
+                    <%= link_to "-", priority_sub_path(obj) %>
+                    <%= link_to "edit", edit_task_path(obj) %>
+                    <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </th>
+        </tbody>
+                <% else %>
+                <th class="text_content">
+                    <%= obj.task %>
+                </th>
+                <th class="options_content">
+                    <%= link_to "+", priority_add_path(obj) %>
+                    <%= link_to "-", priority_sub_path(obj) %>
+                    <%= link_to "edit", edit_task_path(obj) %>
+                    <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to "done", status_path(obj) %>                    
+                </th>
+        </tbody>
+                <% end %>
 
-<div class="new_task_button">
+        <% end %>
+    </table>
+    </div>
+<% end %>
+<div>
 <%= link_to 'New', new_task_path %>
+</div>
 </div>
