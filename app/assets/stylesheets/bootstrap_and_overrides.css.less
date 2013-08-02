@@ -1,20 +1,20 @@
 @import "twitter/bootstrap/bootstrap";
 
-body{background-color: red;}
+body{background-color: #FEFF7A;}
 
   .text_content {
     width: 670px;
   }
 
   .done{
-    background: green;
+    background: #B1FC6E;
   }
   .not_done{
-    background: red;
+    background: #FC7E6E;
   }
 
 .options_content {
-  width: 100px;
+  width: 140px;
 }
 
 .task_table {
@@ -34,19 +34,57 @@ body{background-color: red;}
   border-bottom-left-radius: 10px;
 }
 
-a img {
-  background-color: #fff;
-}
 
 .row.task_name{
   height: 50px;
-  background: blue;
+  background: linear-gradient(top, #fefcea, #f1da36);
+  background: -webkit-gradient(linear, left top, left bottom, 
+                color-stop(0%,#fefcea), color-stop(100%,#f1da36));
   p {
     font-size: 200%;
     text-align: center;
     margin: 10px auto;
     color: black;
   }
+}
+
+.main_title {
+  text-align: center;
+  text-shadow: 1px 1px 2px black, 0 0 1em black;
+}
+
+.del_task_btn {
+  position: relative;
+  left: 140px;
+  top: 15px;
+}
+
+a {
+  color : transparent;
+  background-color: transparent;
+  text-decoration: none;
+}
+ 
+a:hover {
+  color : transparent;
+  background-color: transparent;
+  text-decoration: none;
+}
+ 
+a:visited {
+  color : transparent;
+  background-color: transparent;
+  text-decoration: none;
+}
+ 
+a:active {
+  color : transparent;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.task_input_line{
+  margin-left: 100px;
 }
 
 @import "twitter/bootstrap/responsive";

@@ -2,4 +2,30 @@
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
-<%= render :partial => 'form' %>
+<%= form_for @task, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <div class="control-group">
+    <%= f.label :task, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :task, :class => 'text_area', rows: 6 %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :dead_line, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :dead_line, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :status, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                task_manager_url, :class => 'btn' %>
+  </div>
+<% end %>

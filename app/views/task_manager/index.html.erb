@@ -2,15 +2,18 @@
 <% @tasks.each_pair do |key, value| %>
     <div class="task_blok">
     <div class="row task_name">
-    <p><%= key %></p>
-    <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),key, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <div class="span6">
+        <p><%= image_tag("glyphicons/png/glyphicons_039_notes.png") %>
+           <%= key %></p>
+    </div>
+    <div class="offset2">
+        <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),key, method: :delete,class: 'del_task_btn', data: { confirm: 'Are you sure?' } %>
+    </div>
     </div>
     <div class="well form-inline" method="post">
         <%= form_for(@task_new) do |f| %>
-        <%= f.text_field :task_name, :value => key %>
-        <!-- <input type="text" class="span6" placeholder="Input task" name="inputing_task" /> -->
+        <%= f.text_field :task_name, :value => key, :class => "task_input_line" %>
         <%= f.text_field :task %>
-        <!-- <button type="submit" class="btn">Add</button> -->
         <%= f.submit :value => "Add Task", :class => "btn" %>
         <% end %>
     </div>
@@ -22,11 +25,11 @@
                     <%= obj.task %>
                 </th>
                 <th class="options_content done">
-                    <%= link_to "+", priority_add_path(obj) %>
-                    <%= link_to "-", priority_sub_path(obj) %>
-                    <%= link_to "edit", edit_task_path(obj) %>
-                    <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    <%= link_to "in action", status_path(obj) %>
+                    <acronym title="Down Priority"><%= link_to image_tag("glyphicons/png/glyphicons_212_down_arrow.png"), priority_add_path(obj) %></acronym>
+                    <acronym title="Up Priority"><%= link_to image_tag("glyphicons/png/glyphicons_213_up_arrow.png"), priority_sub_path(obj) %></acronym>
+                    <acronym title="Edit"><%= link_to image_tag("glyphicons/png/glyphicons_150_edit.png"), edit_task_path(obj) %></acronym>
+                    <acronym title="Delete Task"><%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %></acronym>
+                    <acronym title="In Action"><%= link_to image_tag("glyphicons/png/glyphicons_151_new_window.png"), status_path(obj) %></acronym>
                 </th>
         </tbody>
                 <% elsif obj.status == "fail"%>
@@ -34,10 +37,10 @@
                     <%= obj.task %>
                 </th>
                 <th class="options_content not_done">
-                    <%= link_to "+", priority_add_path(obj) %>
-                    <%= link_to "-", priority_sub_path(obj) %>
-                    <%= link_to "edit", edit_task_path(obj) %>
-                    <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <acronym title="Down Priority"><%= link_to image_tag("glyphicons/png/glyphicons_212_down_arrow.png"), priority_add_path(obj) %></acronym>
+                    <acronym title="Up Priority"><%= link_to image_tag("glyphicons/png/glyphicons_213_up_arrow.png"), priority_sub_path(obj) %></acronym>
+                    <acronym title="Edit"><%= link_to image_tag("glyphicons/png/glyphicons_150_edit.png"), edit_task_path(obj) %></acronym>
+                    <acronym title="Delete Task"><%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %></acronym>
                 </th>
         </tbody>
                 <% else %>
@@ -45,11 +48,11 @@
                     <%= obj.task %>
                 </th>
                 <th class="options_content">
-                    <%= link_to "+", priority_add_path(obj) %>
-                    <%= link_to "-", priority_sub_path(obj) %>
-                    <%= link_to "edit", edit_task_path(obj) %>
-                    <%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    <%= link_to "done", status_path(obj) %>                    
+                    <acronym title="Down Priority"><%= link_to image_tag("glyphicons/png/glyphicons_212_down_arrow.png"), priority_add_path(obj) %></acronym>
+                    <acronym title="Up Priority"><%= link_to image_tag("glyphicons/png/glyphicons_213_up_arrow.png"), priority_sub_path(obj) %></acronym>
+                    <acronym title="Edit"><%= link_to image_tag("glyphicons/png/glyphicons_150_edit.png"), edit_task_path(obj) %></acronym>
+                    <acronym title="Delete Task"><%= link_to image_tag("glyphicons/png/glyphicons_207_remove_2.png"),obj, method: :delete, data: { confirm: 'Are you sure?' } %></acronym>
+                    <acronym title="Done"><%= link_to image_tag("glyphicons/png/glyphicons_152_check.png"), status_path(obj) %></acronym>                
                 </th>
         </tbody>
                 <% end %>
@@ -58,7 +61,7 @@
     </table>
     </div>
 <% end %>
-<div>
-<%= link_to 'New', new_task_path %>
+<div align="center">
+<%= link_to 'NEW TASK LIST', new_task_path, :class => 'btn btn-primary' %>
 </div>
 </div>
